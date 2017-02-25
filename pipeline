@@ -1,0 +1,10 @@
+#######transform the fasta to one line type########
+perl ~/old_sever/myprogram/one_line.pl ~/personaldata/species_20151012/buckwheat/Fta_with_at_annotion.pep buckwheat_pep.fa
+#######split the file into small files to accelerate the speed of blast#########
+split -l 400 -d  -a 3 buckwheat_pep.fa buckwheat_pep
+############rename file#####################
+sh rename.sh
+###########blast###########################
+sh blastall_buckwheat.sh
+##########blast2go#########################
+sh blast2go.sh
